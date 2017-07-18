@@ -7,12 +7,6 @@ DataFrames and Series by timedeltas and periods.
 
 import pandas as pd
 
-try:
-    import matplotlib as mpl
-except ImportError as e:
-    print(('matplotlib could not be imported. '
-           'Some functions may not work correctly!'))
-
 
 def since_last(index, freq='H', unit=None, ambiguous='infer'):
     """returns an index indicating the time since the last occurrence of a
@@ -44,6 +38,7 @@ def since_last(index, freq='H', unit=None, ambiguous='infer'):
 
 
 def plot_timedelta(df, *args, **kwargs):
+    import matplotlib as mpl
     timedelta_index = df.index
     ax = df.reset_index().plot(*args, **kwargs)
 
